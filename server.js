@@ -1,5 +1,5 @@
 
-var redis_host = 'nodeploy.kvusam.0001.usw2.cache.amazonaws.com'; //TODO: move to config file
+var redis_host = 'REDISHOST'; //TODO: move to config file
 
 var redis     = require("redis"),
     http      = require('http'),
@@ -20,8 +20,7 @@ var proxyRouter = new ProxyRouter.ProxyRouter({
 console.log('adding test routes');
 var redisClient = redis.createClient({host:redis_host});
 console.log('adding test1.nodeploy.it');
-redisClient.hset('routes','test1.nodeploy.it','52.37.45.73:80');
-redisClient.hset('routes','balls.nodeploy.it','52.37.45.73:80');
+redisClient.hset('routes','test1.nodeploy.it','127.0.0.1:9001');
 http.createServer(function(req, res) {
     res.end("Hello world from test1 running on 127.0.0.1:9001");
 }).listen(9001);
