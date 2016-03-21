@@ -1,5 +1,3 @@
-//var redis     = require("redis");
-//var client = redis.createClient({host:'nodeploy.kvusam.0001.usw2.cache.amazonaws.com'});
 
 var ProxyRouter = function(options) {
 
