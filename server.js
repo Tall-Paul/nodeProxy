@@ -3,17 +3,6 @@ var ProxyServer = require("./proxyServer.js");
 
 var proxy = new ProxyServer.Server(8000);
 
-proxy.addRoute("bleh","blah");
-
-
-
-
-
-
-
-
-
-
 //Test routes and servers
 console.log('adding test routes');
 console.log('adding test1.nodeploy.it');
