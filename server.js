@@ -1,12 +1,16 @@
-
 var ProxyServer = require("./proxyServer.js");
-
-var proxy = new ProxyServer.Server(8000);
-
-//Test routes and servers
-console.log('adding test routes');
-console.log('adding test1.nodeploy.it');
-proxy.addRoute('test1.nodeploy.it','127.0.0.1:9001','9001');
-
-console.log('adding test2.nodeploy.it');
-proxy.addRoute('test2.nodeploy.it','127.0.0.1:9002','9002');
+var cluster = require('cluster');
+var numCPUs = require('os').cpus().length;
+if (cluster.isMaster) {
+  // Fork workers.
+  for (var i = 0; i < numCPUs; i++) {
+    cluster.fork();
+  }
+  cluster.on('death', function(worker) {
+    console.log('worker ' + worker.pid + ' died');
+  });
+} else {
+  var proxy = new ProxyServer.Server(8000);
+  //proxy.addRoute('missguided.nodeploy.it','www.missguided.co.uk');
+  //proxy.addRoute('boohoo.nodeploy.it','www.boohoo.com');
+}

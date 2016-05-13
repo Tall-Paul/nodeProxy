@@ -15,15 +15,14 @@ var ProxyRouter = function(options) {
 };
 
 ProxyRouter.prototype.lookup = function(hostname, callback) {
+  hostname = hostname.split('.')[0];
+  console.log(hostname);
   var self = this;
   if (!this.cache[hostname]) {
     this.backend.hget('routes', hostname, function(err, data) {
       if (data) {
         // Lookup route
-        var route = data.split(':');
-        var target = {host: route[0], port: route[1]};
-
-        // Set cache and expiration
+        var target = data;
         self.cache[hostname] = target;
         self.expire_route(hostname, self.cache_ttl);
 

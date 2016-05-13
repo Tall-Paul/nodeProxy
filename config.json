@@ -1,4 +1,9 @@
 {
-  "redis_server":"127.0.0.1"
-  
+  "redis_server":"127.0.0.1",
+  "allow_frames":true,
+  "inject_files":true,
+  "routes": {
+    "google":"https://www.google.com",
+    "amazon":"https://www.amazon.co.uk"
+  }
 }
