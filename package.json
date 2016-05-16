@@ -1,0 +1,29 @@
+{
+  "name": "bannr-proxy",
+  "version": "0.1.0",
+  "description": "Proxy server for bannr.io",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "redis": "^2.5.3",
+    "http-proxy": "^1.13.2",
+    "harmon": "^1.3.1",
+    "connect": "^3.4.1",
+    "select": "^1.0.6"
+  },
+  "engines": {
+    "node": "4.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Tall-Paul/nodeProxy"
+  },
+  "keywords": [
+    "proxy",
+    "bannr"
+  ],
+  "author": "Paul Berry <tall_paulb@hotmail.com>",
+  "license": "MIT"
+}
